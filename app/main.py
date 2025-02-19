@@ -1,14 +1,10 @@
-from flask import Flask
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
-@app.route("/app/")
-def hello_world():
-    return "Hello, world!"
-
-@app.route("/app/number/<num>")
-def new(num):
-    return f"Число {num}"
+@app.route("/")
+def hello_world(name="Пользователь"):
+    return render_template("index.html", name=name)
 
 if __name__ == "__main__":
     app.run(debug=True)
