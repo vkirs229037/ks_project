@@ -5,7 +5,26 @@
 {% endblock %}
 
 {% block body %}
+<script src="{{url_for('static', filename='js/search.js')}}"></script>
 <h1>Найти книгу</h1>
-<input type="text" name="search-book">
+<div class="search">
+    <div class="search-field">
+        <label for="search-title">Название</label>
+        <input type="text" name="search-title">
+    </div>
+    <div class="search-field">
+        <label for="search-author">Автор</label>
+        <input type="text" name="search-author">
+    </div>
+    <div class="search-field">
+        <label for="search-year">Год</label>
+        <input type="text" name="search-year">
+    </div>
+    <div class="search-field">
+        <label for="search-desc">Описание</label>
+        <input type="text" name="search-desc">
+    </div>
+    <button onclick="search()">Поиск</button>
+</div>
 <div class="search-result"></div>
 {% endblock %}
