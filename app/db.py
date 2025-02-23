@@ -22,11 +22,13 @@ def init():
 def search(title=None, author=None, year=None, desc=None):
     conn = connect()
     query = "SELECT * FROM Books WHERE " +\
-            "title " + ("= %s" if title is not None else "") +\
-            "AND author " + ("= %s" if author is not None else "") +\
-            "AND year " + ("= %s" if year is not None else "") +\
-            "AND desc " + ("= %s" if desc is not None else "") + ";"
-    args = filter(lambda p: p is not None, [title, author, year, desc])
+            "title " + ("LIKE ? " if title is not None else "") +\
+            "AND author " + ("LIKE ? " if author is not None else "") +\
+            "AND year " + ("LIKE ? " if year is not None else "") +\
+            "AND desc " + ("LIKE ? " if desc is not None else "") + ";"
+    print("DEBUG:", query)
+    args = list(map(lambda s: "%" + s + "%", filter(lambda p: p is not None, [title, author, year, desc])))
     cur = conn.cursor()
+    print(args)
     cur.execute(query, args)
     return json.dumps(cur.fetchall())
