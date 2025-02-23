@@ -1,6 +1,9 @@
 from flask import Flask, render_template, redirect
+import os
+import db
 
 app = Flask(__name__)
+app.config["DATABASE"] = os.path.dirname(os.path.realpath(__file__)) + "/data/books.db"
 
 @app.route("/")
 def root():
@@ -18,9 +21,6 @@ def search():
 def about():
     return render_template("about.html")
 
-@app.route("/api/test")
-def test():
-    return {"My final message": "Change da world... Goodbye..."}
-
 if __name__ == "__main__":
+    db.init()
     app.run(host="0.0.0.0", port=9000, debug=True)
