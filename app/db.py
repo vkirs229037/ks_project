@@ -1,9 +1,11 @@
-from flask import current_app
 import sqlite3
 import json
+import os
+
+DB_PATH = os.path.dirname(os.path.realpath(__file__)) + "/data/books.db"
 
 def connect():
-    return sqlite3.connect(current_app.config["DATABASE"])
+    return sqlite3.connect(DB_PATH)
 
 def init():
     conn = connect()

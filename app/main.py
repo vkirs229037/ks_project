@@ -3,7 +3,6 @@ import os
 import db
 
 app = Flask(__name__)
-app.config["DATABASE"] = os.path.dirname(os.path.realpath(__file__)) + "/data/books.db"
 
 @app.route("/")
 def root():
