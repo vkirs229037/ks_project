@@ -1,3 +1,5 @@
 .kn_project
 источники.txt
 .mypy_cache
+app/data
+__pycache__
