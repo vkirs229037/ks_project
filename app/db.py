@@ -14,7 +14,7 @@ def init():
                         title text,
                         author text,
                         year text,
-                        desc text,
+                        desc text
                     );""")
     conn.commit()
     conn.close()
