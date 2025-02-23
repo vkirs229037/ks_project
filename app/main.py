@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect
+from flask import Flask, render_template, redirect, request
 import os
 import db
 
@@ -15,6 +15,18 @@ def index():
 @app.route("/library/search")
 def search():
     return render_template("search.html")
+
+@app.route("/api/search")
+def search_lib():
+    title = request.args.get('title')
+    if title == "": title = None
+    author = request.args.get('author')
+    if author == "": author = None
+    year = request.args.get('year')
+    if year == "": year = None
+    desc = request.args.get('desc')
+    if desc == "": desc = None
+    return db.search(title, author, year, desc)
 
 @app.route("/about")
 def about():
