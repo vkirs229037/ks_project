@@ -1,13 +1,16 @@
-<!DOCTYPE html>
-<html lang="ru">
-    <head>
-        <meta charset="UTF-8">
-        <title>Библиотека</title>
-    </head>
-    <body>
-        <h1>Главная страница</h1>
-        <p>Добро пожаловать, {{ name }}</p>
-        <a>Найти книгу</a>
-        <a>Ваши книги</a>
-    </body>
-</html>
+{% extends "main.html" %}
+
+{% block title %}
+Библиотека № XYZ
+{% endblock %}
+
+{% block body %}
+<script src="{{url_for('static', filename='js/script.js')}}"></script>
+<h1>Главная страница</h1>
+<p>Добро пожаловать</p>
+<div>
+    <a href="/library/search">Найти книгу</a>
+    <a href="/about">О нас</a>
+    <button onclick="test()">Тест</button>
+</div>
+{% endblock %}
