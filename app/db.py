@@ -31,4 +31,6 @@ def search(title=None, author=None, year=None, desc=None):
     cur = conn.cursor()
     print(args)
     cur.execute(query, args)
-    return json.dumps(cur.fetchall())
+    json_result = json.dumps(cur.fetchall())
+    conn.close()
+    return json_result
