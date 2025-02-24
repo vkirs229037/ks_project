@@ -1,6 +1,17 @@
-body {
+html {
+    margin: 0;
+    padding: 1% 5%;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: burlywood;
+    height: 100%;
+}
+
+body {
+    padding: 0 1%;
+    border: 6px solid white;
     background-color: bisque;
+    min-height: 100%;
+    overflow: auto;
 }
 
 h1 {
@@ -8,5 +19,5 @@ h1 {
 }
 
 .container {
-    width: 50%;
+    width: 75%;
 }
