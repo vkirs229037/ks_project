@@ -16,6 +16,14 @@ def index():
 def search():
     return render_template("search.html")
 
+@app.route("/library/<bookid>")
+def book(bookid):
+    info = db.get(bookid)
+    if info is None:
+        return redirect("/library/search")
+    else: 
+        return render_template("book.html", title=info[1], author=info[2], year=info[3], desc=info[4])
+
 @app.route("/api/search")
 def search_lib():
     title = request.args.get('title')

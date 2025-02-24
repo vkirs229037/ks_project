@@ -44,3 +44,14 @@ def build_query(title, author, year, desc):
         query_args += ["desc LIKE ?"]
     result = query_prelude + (" WHERE " if len(query_args) > 0 else "") + " AND ".join(query_args) + ";"
     return result
+
+def get(id):
+    conn = connect()
+    cur = conn.cursor()
+    cur.execute("SELECT * FROM Books WHERE id = ?", (id,))
+    result = cur.fetchall()
+    conn.close()
+    if len(result) == 0:
+        return None
+    else:
+        return result[0]
