@@ -9,7 +9,6 @@
 {% endblock %}
 
 {% block body %}
-<script src="{{url_for('static', filename='js/search.js')}}"></script>
 <div class="container">
     <h1>Найти книгу</h1>
     <div class="search">
@@ -33,4 +32,5 @@
     </div>
     <div class="search-result"></div>
 </div>
+<script src="{{url_for('static', filename='js/search.js')}}"></script>
 {% endblock %}
