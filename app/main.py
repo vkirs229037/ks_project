@@ -19,12 +19,13 @@ def search():
 @app.route("/api/search")
 def search_lib():
     title = request.args.get('title')
-    if title == "": title = None
     author = request.args.get('author')
-    if author == "": author = None
     year = request.args.get('year')
-    if year == "": year = None
     desc = request.args.get('desc')
+    print("DEBUG:", title, author, year, desc)
+    if title == "": title = None
+    if author == "": author = None
+    if year == "": year = None
     if desc == "": desc = None
     return db.search(title, author, year, desc)
 

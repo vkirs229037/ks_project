@@ -19,18 +19,28 @@ def init():
     conn.commit()
     conn.close()
 
-def search(title=None, author=None, year=None, desc=None):
+def search(title, author, year, desc):
     conn = connect()
-    query = "SELECT * FROM Books WHERE " +\
-            "title " + ("LIKE ? " if title is not None else "") +\
-            "AND author " + ("LIKE ? " if author is not None else "") +\
-            "AND year " + ("LIKE ? " if year is not None else "") +\
-            "AND desc " + ("LIKE ? " if desc is not None else "") + ";"
+    query = build_query(title, author, year, desc)
     print("DEBUG:", query)
     args = list(map(lambda s: "%" + s + "%", filter(lambda p: p is not None, [title, author, year, desc])))
     cur = conn.cursor()
-    print(args)
+    print("DEBUG:", args)
     cur.execute(query, args)
     json_result = json.dumps(cur.fetchall())
     conn.close()
     return json_result
+
+def build_query(title, author, year, desc):
+    query_prelude = "SELECT * FROM Books WHERE "
+    query_args = []
+    if title is not None:
+        query_args += ["title LIKE ?"]
+    if author is not None:
+        query_args += ["author LIKE ?"]
+    if year is not None:
+        query_args += ["year LIKE ?"]
+    if desc is not None:
+        query_args += ["desc LIKE ?"]
+    result = query_prelude + " AND ".join(query_args) + ";"
+    return result
