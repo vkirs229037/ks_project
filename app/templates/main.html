@@ -4,14 +4,23 @@
         <meta charset="UTF-8">
         <title>{% block title %}{% endblock %}</title>
         <link href="{{url_for('static', filename='css/style.css')}}" rel="stylesheet">
+        <link href="{{url_for('static', filename='css/navbar.css')}}" rel="stylesheet">
         {% block extracss %}
         {% endblock %}
     </head>
     <body>
         <div class="navbar">
-            <a href="/library">Домашняя страница</a>
-            <a href="/library/search">Поиск книг</a>
-            <a href="/about">О нас</a>
+            <div class="navbar-elem">
+                <a href="/library">Домашняя страница</a>
+            </div>
+            | 
+            <div class="navbar-elem">
+                <a href="/library/search">Поиск книг</a>
+            </div>
+            |
+            <div class="navbar-elem">
+                <a href="/about">О нас</a>
+            </div>
         </div>
         {% block body %}
         {% endblock %}
