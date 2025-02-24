@@ -1,7 +1,8 @@
 let search_div = document.querySelector(".search-result")
 
+document.addEventListener("DOMContentLoaded", search());
+
 async function search() {
-    search_div.style.visibility = "visible"
     let title = document.querySelector("#search-title").value
     let author = document.querySelector("#search-author").value
     let year = document.querySelector("#search-year").value
