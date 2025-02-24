@@ -1,10 +1,12 @@
-.search {
-    display: flex;
-    flex-direction: column;
-    width: 25%;
-    gap: 10px;
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: bisque;
 }
 
-.search input {
-    width: 100%;
+h1 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.container {
+    width: 50%;
 }
