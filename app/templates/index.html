@@ -5,12 +5,14 @@
 {% endblock %}
 
 {% block body %}
-<script src="{{url_for('static', filename='js/script.js')}}"></script>
-<h1>Главная страница</h1>
-<p>Добро пожаловать</p>
-<p>На данном сайте вы можете просмотреть каталог имеющихся книг.</p>
-<div>
-    <a href="/library/search">Найти книгу</a>
-    <a href="/about">О нас</a>
+<div class="container">
+    <script src="{{url_for('static', filename='js/script.js')}}"></script>
+    <h1>Главная страница</h1>
+    <p>Добро пожаловать</p>
+    <p>На данном сайте вы можете просмотреть каталог имеющихся книг.</p>
+    <div>
+        <a href="/library/search">Найти книгу</a>
+        <a href="/about">О нас</a>
+    </div>
 </div>
 {% endblock %}

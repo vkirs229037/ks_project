@@ -6,25 +6,27 @@
 
 {% block body %}
 <script src="{{url_for('static', filename='js/search.js')}}"></script>
-<h1>Найти книгу</h1>
-<div class="search">
-    <div class="search-field">
-        <label for="search-title">Название</label>
-        <input type="text" name="search-title" id="search-title">
+<div class="container">
+    <h1>Найти книгу</h1>
+    <div class="search">
+        <div class="search-field">
+            <label for="search-title">Название</label>
+            <input type="text" name="search-title" id="search-title">
+        </div>
+        <div class="search-field">
+            <label for="search-author">Автор</label>
+            <input type="text" name="search-author" id="search-author">
+        </div>
+        <div class="search-field">
+            <label for="search-year">Год</label>
+            <input type="text" name="search-year" id="search-year">
+        </div>
+        <div class="search-field">
+            <label for="search-desc">Описание</label>
+            <input type="text" name="search-desc" id="search-desc">
+        </div>
+        <button onclick="search()">Поиск</button>
     </div>
-    <div class="search-field">
-        <label for="search-author">Автор</label>
-        <input type="text" name="search-author" id="search-author">
-    </div>
-    <div class="search-field">
-        <label for="search-year">Год</label>
-        <input type="text" name="search-year" id="search-year">
-    </div>
-    <div class="search-field">
-        <label for="search-desc">Описание</label>
-        <input type="text" name="search-desc" id="search-desc">
-    </div>
-    <button onclick="search()">Поиск</button>
+    <div class="search-result"></div>
 </div>
-<div class="search-result"></div>
 {% endblock %}
