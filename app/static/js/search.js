@@ -32,5 +32,23 @@ function err(error) {
 
 function search_results(json) {
     let search_div = document.querySelector(".search-result")
-    search_div.innerHTML = json
+    search_div.innerHTML = ""
+    json.forEach(entry => {
+        add_entry(entry)
+        console.log(entry)
+    });
+}
+
+function add_entry(entry) {
+    let search_div = document.querySelector(".search-result")
+    let entry_div = 
+    `<a href='/library/${entry[0]}'>
+        <div class='entry'>
+            <h3>${entry[1]}</h3>
+            <h4>Автор: ${entry[2]}</h4>
+            <p>Год издания: ${entry[3]}</p>
+            <p>${entry[4].substring(0, 127) + "..."}</p>
+        </div>
+    </a>`
+    search_div.innerHTML += entry_div
 }
