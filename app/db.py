@@ -32,7 +32,7 @@ def search(title, author, year, desc):
     return json_result
 
 def build_query(title, author, year, desc):
-    query_prelude = "SELECT * FROM Books WHERE "
+    query_prelude = "SELECT * FROM Books"
     query_args = []
     if title is not None:
         query_args += ["title LIKE ?"]
@@ -42,5 +42,5 @@ def build_query(title, author, year, desc):
         query_args += ["year LIKE ?"]
     if desc is not None:
         query_args += ["desc LIKE ?"]
-    result = query_prelude + " AND ".join(query_args) + ";"
+    result = query_prelude + (" WHERE " if len(query_args) > 0 else "") + " AND ".join(query_args) + ";"
     return result
