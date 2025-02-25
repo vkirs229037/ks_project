@@ -1,0 +1,10 @@
+.book-desc h3 {
+    margin: 10px;
+}
+
+.book-desc {
+    border: 2px solid rgb(165, 91, 42);
+    border-radius: 5px;
+    background-color: antiquewhite;
+    padding: 5px;
+}
