@@ -24,7 +24,7 @@ def search():
 def book(bookid):
     info = db.get(bookid)
     if info is None:
-        return redirect("/library/search")
+        return render_template("not_found.html"), 404
     else: 
         return render_template("book.html", title=info[1], author=info[2], year=info[3], desc=info[4])
 
