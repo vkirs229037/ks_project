@@ -47,8 +47,16 @@ function add_entry(entry) {
             <p class='entry-title'>${entry[1]}</p>
             <p>Автор: ${entry[2]}</p>
             <p>Год издания: ${entry[3]}</p>
-            <p>${entry[4].substring(0, 127) + "..."}</p>
+            <p>${abbrev(entry[4])}</p>
         </div>
     </a>`
     search_div.innerHTML += entry_div
+}
+
+function abbrev(str) {
+    var end = 255
+    while (str[end] != " ") {
+        end += 1;
+    }
+    return str.substring(0, end) + "..."
 }
