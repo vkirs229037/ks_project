@@ -1,5 +1,5 @@
 from flask import Flask, render_template, redirect, request
-import os
+import sys
 import db
 
 app = Flask(__name__)
@@ -46,5 +46,8 @@ def about():
     return render_template("about.html")
 
 if __name__ == "__main__":
+    host = "127.0.0.1"
+    if len(sys.argv) > 1 and sys.argv[1] == "net":
+            host = "0.0.0.0"
     db.init()
-    app.run(host="0.0.0.0", port=9000, debug=True)
+    app.run(host=host, port=9000, debug=True)
