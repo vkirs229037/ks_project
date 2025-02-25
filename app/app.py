@@ -3,6 +3,7 @@ import sys
 import db
 
 app = Flask(__name__)
+db.init()
 
 @app.errorhandler(404)
 def not_found(e):
@@ -44,10 +45,3 @@ def search_lib():
 @app.route("/about")
 def about():
     return render_template("about.html")
-
-if __name__ == "__main__":
-    host = "127.0.0.1"
-    if len(sys.argv) > 1 and sys.argv[1] == "net":
-            host = "0.0.0.0"
-    db.init()
-    app.run(host=host, port=9000, debug=True)
